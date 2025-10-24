@@ -1,57 +1,43 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moon Learn 学 - Ôn & Thi Trắc Nghiệm</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>QuizFromFile – Đọc đề PDF/DOCX & thi thử</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Moon Learn 学" id="logo">
-    <h1>Moon Learn 学</h1>
+    <span id="title">QuizFromFile</span>
+    <div id="progressBar"><div id="progressFill"></div></div>
+    <span id="timer">00:00</span>
   </header>
 
-  <section id="uploadSection">
-    <h2>📄 Tải lên đề thi (PDF / DOCX)</h2>
-    <input type="file" id="fileInput" accept=".pdf,.docx">
-  </section>
+  <main>
+    <aside id="sidebar">
+      <input type="file" id="fileInput" accept=".pdf,.docx"/>
+      <div id="questionPalette"></div>
+    </aside>
 
-  <div id="topBar" class="hidden">
-    <select id="modeSelect">
-      <option value="review">Ôn tập (xem đáp án)</option>
-      <option value="exam">Thi thử (có đồng hồ)</option>
-    </select>
-    <input id="timeInput" type="number" min="1" placeholder="Nhập thời gian (phút)" class="hidden">
-    <button id="startBtn">🚀 Bắt đầu</button>
-    <span id="timer"></span>
-    <span id="questionNum"></span>
-  </div>
+    <section id="content">
+      <div id="modeSelect">
+        <label><input type="radio" name="mode" value="practice" checked> Ôn tập</label>
+        <label><input type="radio" name="mode" value="exam"> Thi thử</label>
+      </div>
 
-  <div id="progressContainer" class="hidden">
-    <div id="progressBoard"></div>
-    <div id="progressOuter"><div id="progressBar"></div></div>
-  </div>
+      <div id="quizArea"></div>
 
-  <section id="quizArea" class="hidden">
-    <div id="questionTitle"></div>
-    <div id="options" class="options"></div>
-    <div class="navBtns">
-      <button id="prevBtn" class="navBtn">← Trước</button>
-      <button id="nextBtn" class="navBtn">Tiếp →</button>
-      <button id="submitBtn" class="navBtn submit">Nộp bài</button>
-    </div>
-  </section>
+      <div id="navBtn">
+        <button id="prevBtn">← Trước</button>
+        <button id="nextBtn">Sau →</button>
+        <button id="finishBtn" style="display:none">Nộp bài</button>
+      </div>
+    </section>
+  </main>
 
-  <div id="result" class="hidden"></div>
-
-  <footer>
-    <p>© 2025 Moon Learn 学 | Made with ❤️</p>
-  </footer>
-
-  <script src="script.js"></script>
+  <!-- libs CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
